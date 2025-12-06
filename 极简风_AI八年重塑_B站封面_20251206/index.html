@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 
+    文件路径: /极简风_AI八年重塑_B站封面_20251206/index.html
+    主要功能: B站视频封面图生成页面，展示AI发展历程的视觉设计
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI八年重塑 - B站封面</title>
+    
+    <!-- Google Fonts 引入 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- html2canvas 库用于生成图片 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 保存按钮 -->
+    <div class="save-button-container">
+        <button id="saveBtn" class="save-btn">
+            <i class="fas fa-download"></i> 保存封面
+        </button>
+    </div>
+
+    <!-- 封面主容器 3:4 比例 -->
+    <div id="poster" class="poster-container">
+        <!-- 背景装饰元素 -->
+        <div class="bg-decoration">
+            <div class="circle-element circle-1"></div>
+            <div class="circle-element circle-2"></div>
+            <div class="line-element line-1"></div>
+        </div>
+
+        <!-- 顶部标识区域 -->
+        <div class="header-section">
+            <div class="year-badge">2017-2025</div>
+            <div class="icon-decoration">
+                <i class="fas fa-brain"></i>
+            </div>
+        </div>
+
+        <!-- 核心标题区域 -->
+        <div class="title-section">
+            <h1 class="main-title">
+                <span class="highlight-text">AI如何</span>
+                <br>
+                <span class="big-text">重塑</span>
+                <span class="underline-text">一切</span>
+            </h1>
+            <div class="subtitle">八年进化史诗</div>
+        </div>
+
+        <!-- 时间线内容区域 -->
+        <div class="timeline-section">
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-text">序章：无声的惊雷</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-text">GPT诞生 · 巨兽蛰伏</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-text">图像大爆发 · 创世火焰</span>
+            </div>
+            <div class="timeline-item highlight-item">
+                <span class="timeline-dot pulse"></span>
+                <span class="timeline-text"><strong>ChatGPT时刻</strong></span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-text">开源革命 · 平民英雄</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-text">智能体觉醒 · 重构现实</span>
+            </div>
+        </div>
+
+        <!-- 底部标签区域 -->
+        <div class="footer-section">
+            <div class="tag-group">
+                <span class="tag">AI进化史</span>
+                <span class="tag">技术革命</span>
+                <span class="tag">未来已来</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

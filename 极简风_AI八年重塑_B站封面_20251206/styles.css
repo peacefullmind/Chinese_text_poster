@@ -1,0 +1,337 @@
+/*
+文件路径: /极简风_AI八年重塑_B站封面_20251206/styles.css
+主要功能: B站封面样式定义，实现3:4比例的极简高端设计
+*/
+
+/* 全局重置和基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* 保存按钮容器 */
+.save-button-container {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 保存按钮样式 */
+.save-btn {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+}
+
+/* 海报主容器 - 严格3:4比例 */
+.poster-container {
+    width: 750px;
+    height: 1000px;
+    background: linear-gradient(165deg, #ffffff 0%, #fafbfc 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 60px 50px;
+}
+
+/* 背景装饰元素 */
+.bg-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 圆形装饰元素 */
+.circle-element {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+}
+
+.circle-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #000000 0%, transparent 70%);
+    top: -150px;
+    right: -100px;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #000000 0%, transparent 70%);
+    bottom: -100px;
+    left: -80px;
+}
+
+/* 线条装饰元素 */
+.line-element {
+    position: absolute;
+    background: linear-gradient(90deg, transparent 0%, #000000 50%, transparent 100%);
+    opacity: 0.05;
+}
+
+.line-1 {
+    width: 600px;
+    height: 2px;
+    top: 40%;
+    left: -100px;
+    transform: rotate(-15deg);
+}
+
+/* 顶部区域 */
+.header-section {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+/* 年份徽章 */
+.year-badge {
+    background: #000000;
+    color: #ffffff;
+    padding: 10px 24px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 图标装饰 */
+.icon-decoration {
+    font-size: 36px;
+    color: #000000;
+    opacity: 0.85;
+}
+
+/* 核心标题区域 */
+.title-section {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 70px;
+}
+
+/* 主标题 */
+.main-title {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+/* 高亮文字 - 关键词 */
+.highlight-text {
+    color: #ff6b6b;
+    text-shadow: 2px 2px 0px rgba(255, 107, 107, 0.2);
+}
+
+/* 超大文字 - 最大字级关键词 */
+.big-text {
+    font-size: 96px;
+    font-weight: 900;
+    display: inline-block;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 10px;
+}
+
+/* 下划线文字 */
+.underline-text {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-text::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #ffeb3b;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* 副标题 */
+.subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    color: #666666;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/* 时间线区域 */
+.timeline-section {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* 时间线项目 */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+}
+
+/* 时间线圆点 */
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: #000000;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 时间线文字 */
+.timeline-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: 0.5px;
+}
+
+/* 高亮时间线项目 */
+.highlight-item .timeline-text {
+    font-size: 24px;
+    color: #000000;
+}
+
+/* 脉冲动画圆点 */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+        background: #ff6b6b;
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.1);
+        background: #ff8787;
+    }
+}
+
+/* 底部标签区域 */
+.footer-section {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+}
+
+/* 标签组 */
+.tag-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* 单个标签 */
+.tag {
+    padding: 8px 20px;
+    background: #000000;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* 响应式设计 - 适配移动端 */
+@media (max-width: 768px) {
+    .poster-container {
+        width: 90vw;
+        height: calc(90vw * 4 / 3);
+        padding: 40px 30px;
+    }
+    
+    .main-title {
+        font-size: 42px;
+    }
+    
+    .big-text {
+        font-size: 72px;
+    }
+    
+    .subtitle {
+        font-size: 22px;
+    }
+    
+    .timeline-text {
+        font-size: 16px;
+    }
+    
+    .highlight-item .timeline-text {
+        font-size: 18px;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .save-button-container {
+        display: none;
+    }
+    
+    .poster-container {
+        box-shadow: none;
+    }
+}
+

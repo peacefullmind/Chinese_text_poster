@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI八年重塑 - B站封面</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="poster" id="poster">
+            <!-- 背景装饰元素 -->
+            <div class="bg-grid"></div>
+            <div class="accent-line line-1"></div>
+            <div class="accent-line line-2"></div>
+
+            <!-- 主内容区域 -->
+            <div class="content-wrapper">
+                <!-- 左侧主标题区 -->
+                <div class="main-section">
+                    <div class="year-range">
+                        <span class="year">2017</span>
+                        <span class="separator">—</span>
+                        <span class="year">2025</span>
+                    </div>
+
+                    <div class="title-group">
+                        <div class="title-line">
+                            <span class="title-text">AI</span>
+                            <span class="title-text-sub">如何用</span>
+                        </div>
+                        <div class="title-highlight">
+                            <span class="keyword">八年</span>
+                        </div>
+                        <div class="title-line">
+                            <span class="title-emphasis">重塑</span>
+                            <span class="title-text">一切</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧章节信息区 -->
+                <div class="chapters-section">
+                    <div class="chapter-header">八个时代节点</div>
+
+                    <div class="chapters-grid">
+                        <div class="chapter-card">
+                            <div class="chapter-num">01</div>
+                            <div class="chapter-title">巨兽蛰伏</div>
+                            <div class="chapter-desc">GPT萌芽</div>
+                        </div>
+
+                        <div class="chapter-card">
+                            <div class="chapter-num">02</div>
+                            <div class="chapter-title">创世火焰</div>
+                            <div class="chapter-desc">图像爆发</div>
+                        </div>
+
+                        <div class="chapter-card">
+                            <div class="chapter-num">03</div>
+                            <div class="chapter-title">对话纪元</div>
+                            <div class="chapter-desc">ChatGPT时刻</div>
+                        </div>
+
+                        <div class="chapter-card">
+                            <div class="chapter-num">04</div>
+                            <div class="chapter-title">开源崛起</div>
+                            <div class="chapter-desc">DeepSeek</div>
+                        </div>
+
+                        <div class="chapter-card">
+                            <div class="chapter-num">05</div>
+                            <div class="chapter-title">智能体觉醒</div>
+                            <div class="chapter-desc">Agent时代</div>
+                        </div>
+
+                        <div class="chapter-card">
+                            <div class="chapter-num">06</div>
+                            <div class="chapter-title">多模态</div>
+                            <div class="chapter-desc">Sora重构</div>
+                        </div>
+                    </div>
+
+                    <div class="future-tag">
+                        <span class="infinity">∞</span>
+                        <span class="future-text">无尽的未来</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 保存按钮 -->
+        <button class="save-btn" id="saveBtn">保存为图片</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

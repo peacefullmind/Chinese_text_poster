@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 八年重塑封面 4:3 深空黑金</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&family=Noto+Sans+SC:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #05070c;
+      --panel: #0d1420;
+      --accent: #f1c750;
+      --line: #1c2735;
+      --muted: #8fa3b8;
+      --text: #e9eef5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      padding: 30px 20px;
+    }
+    #saveBtn {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      padding: 10px 14px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      z-index: 9;
+    }
+    #saveBtn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,0.45); }
+    #saveBtn:active { transform: translateY(0); }
+
+    #poster {
+      width: min(94vw, 1120px);
+      aspect-ratio: 4 / 3;
+      background: var(--panel);
+      border-radius: 0;
+      padding: 40px 44px;
+      position: relative;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 32px;
+    }
+    #poster::before,
+    #poster::after {
+      content: '';
+      position: absolute;
+      background: rgba(241, 199, 80, 0.12);
+      filter: blur(90px);
+      z-index: 0;
+    }
+    #poster::before {
+      width: 260px;
+      height: 240px;
+      top: -60px;
+      right: 40px;
+    }
+    #poster::after {
+      width: 260px;
+      height: 240px;
+      bottom: -80px;
+      left: 40px;
+    }
+    .ribbon {
+      position: absolute;
+      width: 120%;
+      height: 260px;
+      top: 22%;
+      left: -10%;
+      background: linear-gradient(115deg, rgba(241,199,80,0.12), rgba(233,238,245,0.05));
+      filter: blur(18px);
+      transform: rotate(-8deg);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .halo {
+      position: absolute;
+      width: 540px;
+      height: 540px;
+      border: 1.5px solid rgba(241, 199, 80, 0.14);
+      border-radius: 50%;
+      top: -80px;
+      left: -160px;
+      transform: rotate(-6deg);
+      z-index: 0;
+    }
+    .halo::after {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(233, 238, 245, 0.08);
+      border-radius: 50%;
+    }
+    .bars {
+      position: absolute;
+      right: -40px;
+      bottom: 30px;
+      width: 340px;
+      height: 240px;
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 10px;
+      transform: rotate(-6deg);
+      z-index: 0;
+    }
+    .bar {
+      background: rgba(233, 238, 245, 0.05);
+      border: 1px solid rgba(233, 238, 245, 0.08);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+    }
+    .bar:nth-child(2n) { background: rgba(241, 199, 80, 0.08); border-color: rgba(241, 199, 80, 0.18); }
+
+    .col {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .keywords {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .keyword {
+      font-size: clamp(58px, 6.3vw, 94px);
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .keyword.accent {
+      color: var(--accent);
+      text-shadow: 0 10px 28px rgba(241, 199, 80, 0.28);
+    }
+    .keyword.outline {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text);
+      text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    }
+    .title {
+      margin: 0;
+      font-size: clamp(40px, 3.5vw, 60px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0.2px;
+    }
+    .subtitle {
+      font-size: 20px;
+      color: var(--muted);
+      line-height: 1.6;
+      letter-spacing: 0.35px;
+      max-width: 96%;
+    }
+    .chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: #0b121c;
+      font-size: 14px;
+      color: var(--text);
+      letter-spacing: 0.3px;
+      font-weight: 800;
+    }
+    .year {
+      margin-top: auto;
+      font-size: 60px;
+      font-weight: 900;
+      color: rgba(233, 238, 245, 0.42);
+      letter-spacing: 6px;
+    }
+    .grid {
+      margin-top: auto;
+      background: rgba(9, 14, 22, 0.86);
+      border: 1px solid var(--line);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 14px;
+    }
+    .card {
+      padding: 12px 12px 10px;
+      border: 1px solid var(--line);
+      background: #0b121c;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 72px;
+    }
+    .label {
+      font-size: 13px;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .text {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--text);
+    }
+    @media (max-width: 900px) {
+      #poster {
+        grid-template-columns: 1fr;
+        padding: 32px 28px;
+      }
+      .keywords { flex-wrap: wrap; }
+      .subtitle { max-width: 100%; }
+      .year { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <button id="saveBtn"><i class="fa-solid fa-download"></i> 保存封面</button>
+
+  <div id="poster">
+    <div class="ribbon"></div>
+    <div class="halo"></div>
+    <div class="bars">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <div class="col">
+      <div class="keywords">
+        <span class="keyword accent">AI</span>
+        <span class="keyword outline">八年</span>
+        <span class="keyword accent">重塑</span>
+      </div>
+      <h1 class="title">2017-2025，AI如何用八年重塑一切</h1>
+      <div class="subtitle">浓缩八年跃迁：从无声惊雷到智能体觉醒的深空轨迹。</div>
+      <div class="chips">
+        <span class="chip">觉醒</span>
+        <span class="chip">迭代</span>
+        <span class="chip">再造</span>
+      </div>
+      <div class="year">2017 — 2025</div>
+    </div>
+
+    <div class="col">
+      <div class="grid">
+        <div class="card">
+          <div class="label">序章</div>
+          <div class="text">无声的惊雷</div>
+        </div>
+        <div class="card">
+          <div class="label">蛰伏</div>
+          <div class="text">巨兽起势</div>
+        </div>
+        <div class="card">
+          <div class="label">爆发</div>
+          <div class="text">创世火焰</div>
+        </div>
+        <div class="card">
+          <div class="label">对话</div>
+          <div class="text">新入口</div>
+        </div>
+        <div class="card">
+          <div class="label">群像</div>
+          <div class="text">诸神与开源</div>
+        </div>
+        <div class="card">
+          <div class="label">觉醒</div>
+          <div class="text">智能体</div>
+        </div>
+        <div class="card">
+          <div class="label">多模</div>
+          <div class="text">重构现实</div>
+        </div>
+        <div class="card">
+          <div class="label">未来</div>
+          <div class="text">无尽扩展</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    const poster = document.getElementById('poster');
+    const saveBtn = document.getElementById('saveBtn');
+
+    saveBtn.addEventListener('click', () => {
+      html2canvas(poster, {
+        scale: 2,
+        backgroundColor: null,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'AI_cover_4-3.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>

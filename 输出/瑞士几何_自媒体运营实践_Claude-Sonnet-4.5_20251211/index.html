@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 
+    文件路径: /输出/瑞士几何_自媒体运营实践_Claude-Sonnet-4.5_20251211/index.html
+    主要功能: 抖音合集封面图 - 自媒体运营实践主题
+    设计风格: 瑞士国际主义 + 几何抽象
+    比例: 4:3
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自媒体运营实践 - 抖音封面</title>
+    
+    <!-- Google Fonts: Noto Sans SC (思源黑体) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- html2canvas CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 保存按钮（固定在右上角，不影响设计） -->
+    <button id="saveBtn" class="save-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        保存图片
+    </button>
+
+    <!-- 主容器：4:3 比例 -->
+    <div class="container">
+        <!-- 封面设计区域 -->
+        <div id="poster" class="poster">
+            <!-- 几何背景装饰 -->
+            <div class="geometric-bg">
+                <div class="block block-red"></div>
+                <div class="block block-blue"></div>
+                <div class="block block-yellow"></div>
+                <div class="line line-horizontal-1"></div>
+                <div class="line line-horizontal-2"></div>
+                <div class="line line-vertical-1"></div>
+                <div class="line line-vertical-2"></div>
+            </div>
+
+            <!-- 内容区域 -->
+            <div class="content">
+                <!-- 顶部标签 -->
+                <div class="tag">PRACTICE</div>
+
+                <!-- 主标题区域 -->
+                <div class="title-area">
+                    <h1 class="main-title">
+                        <span class="title-line">自媒体</span>
+                        <span class="title-line highlight">运营</span>
+                        <span class="title-line">实践</span>
+                    </h1>
+                </div>
+
+                <!-- 关键词强调 -->
+                <div class="keywords">
+                    <span class="keyword keyword-1">运营</span>
+                    <span class="keyword-separator">·</span>
+                    <span class="keyword keyword-2">实践</span>
+                    <span class="keyword-separator">·</span>
+                    <span class="keyword keyword-3">方法论</span>
+                </div>
+
+                <!-- 副标题/描述 -->
+                <div class="subtitle">
+                    <p>从零到一的内容创作指南</p>
+                </div>
+
+                <!-- 装饰元素 -->
+                <div class="decorative-element">
+                    <div class="number">2025</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

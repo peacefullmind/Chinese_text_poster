@@ -1,0 +1,321 @@
+/*
+  文件路径：输出/科技简约_自媒体运营实践_GPT-5_20251211/style.css
+  主要功能：定义“自媒体运营实践”抖音合集封面的版式、配色与响应式布局，确保 4:3 比例与科技简约视觉风格
+*/
+
+/* 全局基础样式：重置与字体设置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Noto Sans SC", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-color: #050608;
+  color: #111827;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* 顶部操作区：不进入封面截取区域 */
+.controls {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background-color: rgba(15, 23, 42, 0.86);
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.save-button i {
+  font-size: 0.95rem;
+}
+
+.save-button:hover {
+  background-color: rgba(15, 23, 42, 1);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+  transform: translateY(-1px);
+}
+
+.save-button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.6);
+}
+
+/* 海报整体容器：严格保持 4:3 比例 */
+.poster {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: min(100%, 100vh * 4 / 3);
+  max-width: 1200px;
+  border-radius: 0; /* 外圈卡片直角，干净利落 */
+  background-color: #f9fafb;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  padding: 2.5rem 2.7rem;
+  gap: 2rem;
+  box-shadow:
+    0 28px 80px rgba(15, 23, 42, 0.32),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+/* 通过投影和色块制造层次感，避免使用渐变色 */
+.poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 18px solid rgba(15, 23, 42, 0.04);
+}
+
+.poster-left,
+.poster-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 左侧：大标题与关键词层级 */
+.poster-left {
+  justify-content: space-between;
+}
+
+.tagline {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.tagline-label {
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background-color: #f3f4f6;
+}
+
+.tagline-highlight {
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.8);
+  background-color: #0f172a;
+  color: #f9fafb;
+}
+
+.title-block {
+  margin-top: 1.6rem;
+}
+
+.title-main {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
+.title-keyword {
+  display: inline-block;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.title-keyword-primary {
+  font-size: clamp(3rem, 5vw, 3.6rem);
+  padding: 0.1rem 0.35rem;
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+.title-keyword-secondary {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  padding: 0.1rem 0.35rem;
+  color: #111827;
+  border-bottom: 4px solid #f97316;
+}
+
+.title-sub {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.title-subline {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.title-subline-em {
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.meta-pills {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.pill {
+  padding: 0.18rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 0.7rem;
+  color: #4b5563;
+  background-color: #f9fafb;
+}
+
+.pill-contrast {
+  border-color: #0f172a;
+  color: #0f172a;
+}
+
+/* 右侧：章节故事卡片，制造节奏与阅读路径 */
+.poster-right {
+  justify-content: space-between;
+}
+
+.story-card {
+  position: relative;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background-color: #f9fafb;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.story-card-top {
+  transform: translateX(-4%);
+}
+
+.story-card-middle {
+  transform: translateX(4%);
+}
+
+.story-card-bottom {
+  transform: translateX(-6%);
+}
+
+.story-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.3rem;
+}
+
+.story-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.story-body {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #4b5563;
+}
+
+.corner-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-end;
+  margin-top: 0.8rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #9ca3af;
+}
+
+.corner-label {
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+}
+
+.corner-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: #f97316;
+}
+
+.corner-text {
+  opacity: 0.85;
+}
+
+/* 响应式适配：在较窄视口下垂直排列左右区域 */
+@media (max-width: 900px) {
+  .poster {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.6rem;
+    gap: 1.6rem;
+  }
+
+  .poster-right {
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .poster {
+    padding: 1.6rem 1.1rem;
+  }
+
+  .title-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .story-card-top,
+  .story-card-middle,
+  .story-card-bottom {
+    transform: translateX(0);
+  }
+}
+
+

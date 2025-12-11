@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自媒体运营实践 - 抖音合集封面</title>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+    <!-- 引入 html2canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    
+    <style>
+        /* 文件路径：/几何网格_自媒体运营实践_Claude-Sonnet-4.5_20251211/index.html */
+        /* 功能：抖音合集封面图生成页面，4:3比例，借鉴 Josef Müller-Brockmann 网格系统、Piet Mondrian 几何色块、Paula Scher 大胆字体排版 */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* 海报主容器 - 严格 4:3 比例 */
+        .poster {
+            width: 1200px;
+            height: 900px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 背景网格系统 - 借鉴 Müller-Brockmann */
+        .grid-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(0deg, #000 0px, #000 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(90deg, #000 0px, #000 1px, transparent 1px, transparent 40px);
+        }
+
+        /* 几何色块装饰 - 借鉴 Mondrian */
+        .geometric-block {
+            position: absolute;
+        }
+
+        .block-1 {
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 280px;
+            background: #FF4136;
+        }
+
+        .block-2 {
+            top: 0;
+            right: 0;
+            width: 180px;
+            height: 8px;
+            background: #000000;
+        }
+
+        .block-3 {
+            bottom: 0;
+            left: 0;
+            width: 320px;
+            height: 8px;
+            background: #FF851B;
+        }
+
+        .block-4 {
+            bottom: 80px;
+            right: 0;
+            width: 8px;
+            height: 220px;
+            background: #000000;
+        }
+
+        .block-5 {
+            top: 180px;
+            left: 80px;
+            width: 120px;
+            height: 120px;
+            background: #FF4136;
+            opacity: 0.1;
+        }
+
+        .block-6 {
+            bottom: 150px;
+            right: 100px;
+            width: 80px;
+            height: 80px;
+            background: #FF851B;
+            opacity: 0.15;
+        }
+
+        /* 内容区域 */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 100px;
+        }
+
+        /* 标题区域 - 大胆字体排版借鉴 Paula Scher */
+        .title-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        /* 主标题：自媒体（最大字号） */
+        .main-title {
+            font-size: 180px;
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: #000000;
+            margin-bottom: 20px;
+            font-family: 'Noto Sans SC', sans-serif;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 关键词高亮 */
+        .highlight {
+            color: #FF4136;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: #FF851B;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* 副标题：运营实践（次要字号） */
+        .subtitle {
+            font-size: 96px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #000000;
+            margin-top: 30px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        /* 分隔线装饰 */
+        .divider {
+            width: 200px;
+            height: 6px;
+            background: #000000;
+            margin: 40px auto;
+        }
+
+        /* 描述文字（最小字号） */
+        .description {
+            font-size: 32px;
+            font-weight: 400;
+            color: #333333;
+            letter-spacing: 0.1em;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .description-highlight {
+            font-weight: 700;
+            color: #FF4136;
+            font-size: 38px;
+        }
+
+        /* 装饰性文字元素 */
+        .deco-text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: 600;
+            color: #000000;
+            opacity: 0.2;
+            letter-spacing: 0.2em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .deco-1 {
+            top: 40px;
+            left: 40px;
+            transform: rotate(-90deg);
+            transform-origin: left top;
+        }
+
+        .deco-2 {
+            bottom: 40px;
+            right: 40px;
+            letter-spacing: 0.5em;
+        }
+
+        /* 保存按钮 */
+        .save-button {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background: #667eea;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .save-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .save-button:active {
+            transform: translateY(0);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1400px) {
+            .poster {
+                width: 960px;
+                height: 720px;
+            }
+            
+            .main-title {
+                font-size: 144px;
+            }
+            
+            .subtitle {
+                font-size: 76px;
+            }
+            
+            .description {
+                font-size: 26px;
+            }
+            
+            .description-highlight {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .poster {
+                width: 800px;
+                height: 600px;
+            }
+            
+            .main-title {
+                font-size: 120px;
+            }
+            
+            .subtitle {
+                font-size: 64px;
+            }
+            
+            .description {
+                font-size: 22px;
+            }
+            
+            .description-highlight {
+                font-size: 26px;
+            }
+            
+            .content {
+                padding: 60px 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .poster {
+                width: 600px;
+                height: 450px;
+            }
+            
+            .main-title {
+                font-size: 90px;
+            }
+            
+            .subtitle {
+                font-size: 48px;
+            }
+            
+            .description {
+                font-size: 18px;
+            }
+            
+            .description-highlight {
+                font-size: 20px;
+            }
+            
+            .content {
+                padding: 40px 50px;
+            }
+            
+            .divider {
+                width: 150px;
+                height: 4px;
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 海报主体 -->
+        <div class="poster" id="poster">
+            <!-- 背景网格 -->
+            <div class="grid-background"></div>
+            
+            <!-- 几何装饰色块 -->
+            <div class="geometric-block block-1"></div>
+            <div class="geometric-block block-2"></div>
+            <div class="geometric-block block-3"></div>
+            <div class="geometric-block block-4"></div>
+            <div class="geometric-block block-5"></div>
+            <div class="geometric-block block-6"></div>
+            
+            <!-- 装饰文字 -->
+            <div class="deco-text deco-1">CONTENT CREATION</div>
+            <div class="deco-text deco-2">2024</div>
+            
+            <!-- 主内容区 -->
+            <div class="content">
+                <div class="title-section">
+                    <!-- 主标题 - 最大字号，关键词高亮 -->
+                    <h1 class="main-title">
+                        自<span class="highlight">媒体</span>
+                    </h1>
+                    
+                    <!-- 副标题 - 次要字号 -->
+                    <h2 class="subtitle">运营实践</h2>
+                </div>
+                
+                <!-- 分隔线 -->
+                <div class="divider"></div>
+                
+                <!-- 描述文字 - 最小字号 -->
+                <p class="description">
+                    从<span class="description-highlight">策略</span>到<span class="description-highlight">执行</span><br>
+                    打造高效内容生态
+                </p>
+            </div>
+        </div>
+        
+        <!-- 保存按钮 -->
+        <button class="save-button" onclick="savePoster()">保存为图片</button>
+    </div>
+
+    <script>
+        /**
+         * 功能：使用 html2canvas 将海报保存为图片
+         * 输入：无
+         * 输出：下载生成的图片文件
+         */
+        function savePoster() {
+            const poster = document.getElementById('poster');
+            const button = document.querySelector('.save-button');
+            
+            // 隐藏保存按钮
+            button.style.display = 'none';
+            
+            // 使用 html2canvas 生成图片
+            html2canvas(poster, {
+                scale: 2, // 提高分辨率
+                backgroundColor: '#ffffff',
+                logging: false,
+                useCORS: true
+            }).then(canvas => {
+                // 创建下载链接
+                const link = document.createElement('a');
+                link.download = '自媒体运营实践_抖音封面_' + new Date().getTime() + '.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // 恢复保存按钮
+                button.style.display = 'block';
+            }).catch(error => {
+                console.error('保存失败:', error);
+                button.style.display = 'block';
+                alert('保存失败，请重试');
+            });
+        }
+
+        /**
+         * 功能：页面加载完成后的初始化
+         * 输入：无
+         * 输出：添加简单的入场动画
+         */
+        window.addEventListener('load', function() {
+            const poster = document.querySelector('.poster');
+            poster.style.opacity = '0';
+            poster.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                poster.style.transition = 'all 0.8s ease-out';
+                poster.style.opacity = '1';
+                poster.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
+

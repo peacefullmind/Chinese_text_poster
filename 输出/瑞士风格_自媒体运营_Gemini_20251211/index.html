@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 
+    文件路径: 输出/瑞士风格_自媒体运营_Gemini_20251211/index.html
+    主要功能: 抖音合集封面生成器主页面，包含海报展示区域和操作按钮
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自媒体运营实践 - 瑞士国际主义风格封面</title>
+    <!-- 引入 Google Fonts: Noto Sans SC (中文) 和 Inter (英文/数字) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 预览区域标题 -->
+        <h1 class="page-title">封面预览 (4:3)</h1>
+        
+        <!-- 海报卡片容器: 用于 html2canvas 截图的目标区域 -->
+        <div id="poster-card" class="card">
+            <div class="grid-layout">
+                <!-- 装饰线条 -->
+                <div class="geometric-line"></div>
+                
+                <!-- 顶部英文装饰 -->
+                <div class="header-text">
+                    <span>MEDIA OPERATIONS</span>
+                    <span class="highlight-number">2025</span>
+                </div>
+
+                <!-- 核心标题区域 -->
+                <div class="main-content">
+                    <h1 class="title-keyword">自媒体</h1>
+                    <h2 class="subtitle">运营实践</h2>
+                    <p class="desc">PRACTICE & GROWTH</p>
+                </div>
+
+                <!-- 底部视觉平衡元素 -->
+                <div class="footer-element">
+                    <div class="circle-icon">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
+                    <div class="footer-text">
+                        STRATEGY / CONTENT / DATA
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作按钮区域 -->
+        <div class="controls">
+            <button id="save-btn" class="btn">
+                <i class="fa-solid fa-download"></i> 保存封面图
+            </button>
+        </div>
+    </div>
+
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- 引入自定义脚本 -->
+    <script src="script.js"></script>
+</body>
+</html>

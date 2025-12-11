@@ -1,0 +1,205 @@
+/* 
+    文件路径: 输出/瑞士风格_自媒体运营_Gemini_20251211/style.css
+    主要功能: 定义海报的视觉样式，采用瑞士国际主义风格（Swiss Style）
+    设计特点: 网格布局、无衬线字体、高对比度、几何元素
+*/
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* 页面容器 */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* 海报卡片核心样式 */
+.card {
+    /* 严格的 4:3 比例 */
+    width: 800px;
+    aspect-ratio: 4 / 3;
+    background-color: #E63946; /* 经典的瑞士风格红，避开紫色 */
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    /* 外边缘直角 */
+    border-radius: 0; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    /* 简单的内边距，作为安全区 */
+    padding: 60px;
+}
+
+/* 瑞士风格网格布局 */
+.grid-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* 装饰线条 */
+.geometric-line {
+    position: absolute;
+    top: 180px;
+    left: -60px;
+    width: 400px;
+    height: 4px;
+    background-color: #000000;
+    transform: rotate(0deg); /* 保持水平，极简 */
+}
+
+/* 顶部文字 */
+.header-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #FFFFFF;
+    padding-bottom: 20px;
+    align-items: flex-end;
+}
+
+.highlight-number {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* 主内容区域 */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transform: rotate(-5deg); /* 增加一点动感，这是由 Paula Scher 风格启发的轻微打破网格 */
+    margin-left: 40px;
+}
+
+/* 关键词：最大字号 */
+.title-keyword {
+    font-size: 9rem;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    text-shadow: 4px 4px 0px #000000; /* 硬阴影，增加层次，不用模糊 */
+    margin-bottom: 10px;
+}
+
+/* 副标题：次级字号 */
+.subtitle {
+    font-size: 4.5rem;
+    font-weight: 700;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 0px 20px;
+    line-height: 1.2;
+    margin-left: 10px; /* 错位排版 */
+}
+
+/* 描述文字 */
+.desc {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    margin-left: 15px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* 底部元素 */
+.footer-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 2px solid #FFFFFF;
+    padding-top: 20px;
+}
+
+.circle-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #FFFFFF;
+    color: #E63946;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.footer-text {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* 巨大的背景装饰字，增加层次感（反差空间） */
+.card::before {
+    content: "M";
+    position: absolute;
+    bottom: -100px;
+    right: -50px;
+    font-size: 30rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 控制按钮样式 */
+.controls {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* 响应式调整：如果屏幕太小，缩小显示比例但不改变下载尺寸（这里简化处理，实际可以通过 transform: scale 实现） */
+@media (max-width: 850px) {
+    .card {
+        transform: scale(0.5);
+        margin: -150px 0; /* 修正缩放后的留白 */
+    }
+}
